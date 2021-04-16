@@ -1,5 +1,6 @@
 const express = require('express');
 const colors = require('colors');
+require('./startup/mongodb') ;
 require('./startup/colorsTheme') ;
 
 const app = express();
