@@ -1,8 +1,10 @@
 const express = require('express');
 const colors = require('colors');
-require('./startup/colorsTheme');
+require('./startup/colorsTheme') ;
 
 const app = express();
+
+require('./routes')(app);
 
 const PORT = process.env.PORT || 8080;
 
