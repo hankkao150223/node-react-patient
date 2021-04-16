@@ -1,9 +1,12 @@
 const express = require('express');
+const colors = require('colors');
+require('./startup/colorsTheme');
 
 const app = express();
 
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
-  console.log(`Server started at http://localhost:${PORT}`);
+  const serverUrl = colors.info(`http://localhost:${PORT}`);
+  console.log(colors.input(`Server started at ${serverUrl}`));
 });
