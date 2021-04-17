@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const patientSchema = new Schema({
-  Id: String,
+  Id: mongoose.Schema.Types.ObjectId,
   Name: String,
   // OrderId:
 });

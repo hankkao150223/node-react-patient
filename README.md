@@ -22,3 +22,4 @@
 ## Env
 
 - node version: 12.18.3
+- [MongoDB server](https://www.mongodb.com/), sign in and create DB

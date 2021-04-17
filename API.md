@@ -19,24 +19,24 @@ GET: http://localhost:8080/api/patient
 ```javascript
 [
   {
-    _id: "607a4c79c61c422cc4022a40",
-    Name: "Allen",
+    id: "607a4c79c61c422cc4022a40",
+    name: "Allen",
   },
   {
-    _id: "607a4c79c61c422cc4022a41",
-    Name: "Hank",
+    id: "607a4c79c61c422cc4022a41",
+    name: "Hank",
   },
   {
-    _id: "607a4c79c61c422cc4022a42",
-    Name: "Nash",
+    id: "607a4c79c61c422cc4022a42",
+    name: "Nash",
   },
   {
-    _id: "607a4c79c61c422cc4022a43",
-    Name: "Antony",
+    id: "607a4c79c61c422cc4022a43",
+    name: "Antony",
   },
   {
-    _id: "607a4c79c61c422cc4022a44",
-    Name: "Ryan",
+    id: "607a4c79c61c422cc4022a44",
+    name: "Ryan",
   }
 ]
 ```
