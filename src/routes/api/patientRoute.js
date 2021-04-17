@@ -7,13 +7,12 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const patientsFromDb = await Patient
-      .find()
-      .select('_id name');
+    const patientsFromDb = await Patient.find(); //.populate('orderId')
 
-    patients =  patientsFromDb.map((p) => ({
+    const patients =  patientsFromDb.map((p) => ({
       id: p._id,
       name: p.name,
+      orderId: p.orderId,
     }));
 
     res.status(200).json({
