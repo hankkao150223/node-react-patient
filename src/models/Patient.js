@@ -6,7 +6,7 @@ const patientSchema = new Schema({
   name: String,
   orderId: {
     type: Schema.Types.ObjectId,
-    ref: 'Order',
+    ref: 'orders',
   },
 });
 
