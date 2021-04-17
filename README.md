@@ -12,3 +12,7 @@
 - [ ] 後端採用Nodejs + Express
 - [ ] 後端資料庫採用MongoDB
 - [ ] 住民為固定，醫囑可新增編輯
+
+## Env
+
+- node version: 12.18.3
