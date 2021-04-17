@@ -3,6 +3,7 @@
 ## Outline
 
 1. [取得病人列表](#1取得病人列表)
+2. [增加醫囑](#2增加醫囑)
 
 ## API description
 
@@ -39,4 +40,30 @@ GET: http://localhost:8080/api/patient
     name: "Ryan",
   }
 ]
+```
+
+### 2、增加醫囑
+
+#### Request URL
+
+```
+POST: http://localhost:8080/api/order
+```
+
+#### 参数类型：param
+
+|参数|是否必选|类型|说明|
+|:-----|:-------:|:-----|:-----|
+|message      |Y       |string   |醫囑內文 |
+
+#### 返回示例：
+
+```javascript
+{
+  "isSuccess": true,
+  "data": {
+    "id": "607b03cb0a0c944278c789eb",
+    "message": "超過120請施打8u"
+  }
+}
 ```
