@@ -7,19 +7,19 @@ module.exports = async () => {
   try {
     const patients = [
       {
-        Name: 'Allen',
+        name: 'Allen',
       },
       {
-        Name: 'Hank',
+        name: 'Hank',
       },
       {
-        Name: 'Nash',
+        name: 'Nash',
       },
       {
-        Name: 'Antony',
+        name: 'Antony',
       },
       {
-        Name: 'Ryan',
+        name: 'Ryan',
       },
     ];
     await Patient.deleteMany({})

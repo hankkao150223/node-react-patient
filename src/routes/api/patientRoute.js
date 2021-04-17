@@ -9,15 +9,11 @@ router.get('/', async (req, res) => {
   try {
     const patientsFromDb = await Patient
       .find()
-      .select({
-        _id: true,
-        Name: true,
-      })
-      .exec();
+      .select('_id name');
 
     patients =  patientsFromDb.map((p) => ({
       id: p._id,
-      name: p.Name,
+      name: p.name,
     }));
 
     res.status(200).json({

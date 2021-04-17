@@ -3,6 +3,7 @@ const colors = require('colors');
 const keys = require('../config/keys');
 
 require('../models/Patient');
+require('../models/Order');
 
 mongoose
   .connect(
