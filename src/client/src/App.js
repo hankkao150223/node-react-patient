@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Container from '@material-ui/core/Container';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import HomePage from './components/HomePage';
 import OrderDialog from './components/OrderDialog';
 import * as actions from './store/actions';
 
-const App = (props) => {
+const App = ({ loading, fetchPatientList, fetchOrderList }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [patient, setPatient] = useState(null);
 
   const handlePatientItemClick = (patient) => {
-    setPatient(patient);
     setOpenDialog(true);
+    setPatient(patient);
   };
 
   const handleDialogClose = (patient) => {
-    setPatient(null);
     setOpenDialog(false);
+    setPatient(null);
   };
 
   useEffect(() => {
-    props.fetchPatientList();
-    props.fetchOrderList();
+    fetchPatientList();
+    fetchOrderList();
   }, []);
   return (
     <Container component="main" maxWidth="xs">
@@ -33,8 +35,15 @@ const App = (props) => {
           onClose={handleDialogClose}
         /> : ''
       }
+      <Backdrop open={loading}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </Container>
   );
 }
 
-export default connect(null, actions)(App);
+const mapStateToProps = ({ loading }) => {
+  return { loading };
+}
+
+export default connect(mapStateToProps, actions)(App);

@@ -10,8 +10,18 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import OrderSelect from './OrderSelect';
+import * as actions from '../store/actions';
 
-const OrderDialog = ({ onClose, open, patient, orders }) => {
+const OrderDialog = ({
+  onClose,
+  open,
+  patient,
+  orders,
+  fetchPatientList,
+  patchPatientOrders,
+  openLoading,
+  closeLoading,
+}) => {
   const [patientOrders, setPatientOrders] = useState(patient.orders);
   const handleAdd = () => {
     setPatientOrders([
@@ -29,7 +39,11 @@ const OrderDialog = ({ onClose, open, patient, orders }) => {
     setPatientOrders(newPatientOrders);
   };
   const handleSave = () => {
-
+    openLoading();
+    patchPatientOrders(patient.id, patientOrders)
+      .then(fetchPatientList)
+      .then(onClose)
+      .then(closeLoading);
   };
   return (
     <Dialog
@@ -42,7 +56,7 @@ const OrderDialog = ({ onClose, open, patient, orders }) => {
       <DialogTitle>
         <Grid justify="space-between" container>
           <Grid item>
-            <Typography variant="h6">Order</Typography>
+            <Typography variant="h6">{patient.name} Order</Typography>
           </Grid>
           <Grid item>
             <Button color="primary" onClick={handleAdd}>Add</Button>
@@ -84,4 +98,4 @@ const mapStateToProps = ({ orders }) => {
   return { orders };
 }
 
-export default connect(mapStateToProps, null)(OrderDialog);
+export default connect(mapStateToProps, actions)(OrderDialog);
