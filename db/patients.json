@@ -1,0 +1,38 @@
+[
+  {
+    "_id": { "$oid": "607b9bf80167092e18aa4969" },
+    "name": "Allen",
+    "__v": { "$numberInt": "8" },
+    "orders": [
+      { "$oid": "607b9bf70167092e18aa4967" },
+      { "$oid": "607b9bf70167092e18aa4967" }
+    ]
+  },
+  {
+    "_id": { "$oid": "607b9bf80167092e18aa496a" },
+    "orders": [
+      { "$oid": "607b9bf70167092e18aa4966" },
+      { "$oid": "607b9bf70167092e18aa4967" }
+    ],
+    "name": "Hank",
+    "__v": { "$numberInt": "7" }
+  },
+  {
+    "_id": { "$oid": "607b9bf80167092e18aa496b" },
+    "orders": [{ "$oid": "607b9bf70167092e18aa4966" }],
+    "name": "Nash",
+    "__v": { "$numberInt": "6" }
+  },
+  {
+    "_id": { "$oid": "607b9bf80167092e18aa496c" },
+    "orders": [{ "$oid": "607b9bf70167092e18aa4968" }],
+    "name": "Antony",
+    "__v": { "$numberInt": "1" }
+  },
+  {
+    "_id": { "$oid": "607b9bf80167092e18aa496d" },
+    "orders": [{ "$oid": "607b9bf70167092e18aa4968" }],
+    "name": "Ryan",
+    "__v": { "$numberInt": "0" }
+  }
+]

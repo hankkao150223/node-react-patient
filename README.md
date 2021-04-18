@@ -44,6 +44,9 @@ npm run dev
 ## document
 
 - [API doc](./API.md)
+- DB 結構
+  - 病人: [patient.json](./db/patients.json)
+  - 醫囑: [orders.json](./db/orders.json)
 
 ## Todo List
 
