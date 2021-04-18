@@ -4,6 +4,24 @@
 
 專案架構: 參考[StephenGrider/FullstackReactCode](https://github.com/StephenGrider/FullstackReactCode)
 
+## Demo
+
+- 增加醫囑
+
+<img src="./pic/增加醫囑.gif" width = "375" height = "667" alt="增加醫囑" align=center />
+
+---
+
+- 編輯醫囑
+
+<img src="./pic/編輯醫囑.gif" width = "375" height = "667" alt="編輯醫囑" align=center />
+
+---
+
+- 刪除醫囑
+
+<img src="./pic/刪除醫囑.gif" width = "375" height = "667" alt="刪除醫囑" align=center />
+
 ## How to run
 
 ```bash
