@@ -4,6 +4,7 @@
 
 1. [取得病人列表](#1取得病人列表)
 2. [取得醫囑列表](#2取得醫囑列表)
+3. [更新病人醫囑](#3更新病人醫囑)
 
 ## API description
 
@@ -17,33 +18,43 @@ GET: http://localhost:8080/api/patient
 
 #### 返回示例：
 
-```javascript
+```json
 {
     "patients": [
         {
-            "id": "607b00334148fe341c6df402",
+            "id": "607b9bf80167092e18aa4969",
             "name": "Allen",
-            "orderId": "607b00324148fe341c6df401"
+            "orders": [
+                "607b9bf70167092e18aa4968"
+            ]
         },
         {
-            "id": "607b00334148fe341c6df403",
+            "id": "607b9bf80167092e18aa496a",
             "name": "Hank",
-            "orderId": "607b00324148fe341c6df400"
+            "orders": [
+                "607b9bf70167092e18aa4967"
+            ]
         },
         {
-            "id": "607b00334148fe341c6df404",
+            "id": "607b9bf80167092e18aa496b",
             "name": "Nash",
-            "orderId": "607b00324148fe341c6df3ff"
+            "orders": [
+                "607b9bf70167092e18aa4966"
+            ]
         },
         {
-            "id": "607b00334148fe341c6df405",
+            "id": "607b9bf80167092e18aa496c",
             "name": "Antony",
-            "orderId": "607b00324148fe341c6df400"
+            "orders": [
+                "607b9bf70167092e18aa4967"
+            ]
         },
         {
-            "id": "607b00334148fe341c6df406",
+            "id": "607b9bf80167092e18aa496d",
             "name": "Ryan",
-            "orderId": "607b00324148fe341c6df401"
+            "orders": [
+                "607b9bf70167092e18aa4968"
+            ]
         }
     ]
 }
@@ -59,7 +70,7 @@ GET: http://localhost:8080/api/order
 
 #### 返回示例：
 
-```javascript
+```json
 {
     "orders": [
         {
@@ -79,5 +90,41 @@ GET: http://localhost:8080/api/order
             "message": "1"
         }
     ]
+}
+```
+
+### 3、更新病人醫囑
+
+#### Request URL
+
+```
+PATCH: http://localhost:8080/api/patient/:id/order
+```
+
+#### 参数类型：query
+
+|参数|是否必选|类型|说明|
+|:-----|:-------:|:-----|:-----|
+|id      |Y       |string  |病人 id |
+
+#### 参数类型：param
+
+|参数|是否必选|类型|说明|
+|:-----|:-------:|:-----|:-----|
+|orders      |Y       |[string]  |可設定多項醫囑 id |
+
+#### 返回示例：
+
+```json
+{
+    "isSuccess": true,
+    "patient": {
+        "id": "607b9bf80167092e18aa4969",
+        "name": "Allen",
+        "orders": [
+            "607b9bf70167092e18aa4967",
+            "607b9bf70167092e18aa4968"
+        ]
+    }
 }
 ```
