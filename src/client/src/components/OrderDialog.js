@@ -40,9 +40,9 @@ const OrderDialog = ({
   };
   const handleSave = () => {
     openLoading();
+    onClose();
     patchPatientOrders(patient.id, patientOrders)
       .then(fetchPatientList)
-      .then(onClose)
       .then(closeLoading);
   };
   return (
