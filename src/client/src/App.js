@@ -7,11 +7,16 @@ import * as actions from './store/actions';
 
 const App = (props) => {
   const [openDialog, setOpenDialog] = useState(false);
-  const [orderId, setOrderId] = useState(0);
+  const [patient, setPatient] = useState(null);
 
-  const handlePatientItemClick = (patientId) => {
-    setOrderId(patientId);
+  const handlePatientItemClick = (patient) => {
+    setPatient(patient);
     setOpenDialog(true);
+  };
+
+  const handleDialogClose = (patient) => {
+    setPatient(null);
+    setOpenDialog(false);
   };
 
   useEffect(() => {
@@ -21,11 +26,14 @@ const App = (props) => {
   return (
     <Container component="main" maxWidth="xs">
       <HomePage onClickItem={handlePatientItemClick} />
-      <OrderDialog
-        open={openDialog}
-        onClose={() => setOpenDialog(false)}
-        orderId={orderId}
-      />
+      {
+        openDialog ? <OrderDialog
+          open={openDialog}
+          onClose={handleDialogClose}
+          patient={patient}
+        /> : ''
+      }
+      
     </Container>
   );
 }

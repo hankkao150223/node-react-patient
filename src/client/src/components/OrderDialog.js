@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Dialog from '@material-ui/core/Dialog';
@@ -7,8 +8,22 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import OrderSelect from './OrderSelect';
 
-const OrderDialog = ({ onClose, open }) => {
+const OrderDialog = ({ onClose, open, patient, orders }) => {
+  const [patientOrders, setPatientOrders] = useState(patient.orders);
+  const handleAdd = () => {
+    setPatientOrders([
+      ...patientOrders,
+      orders[0].id,
+    ]);
+  };
+  const handleOrderChange = (e, index) => {
+    const newPatientOrders = [...patientOrders];
+    newPatientOrders[index] = e.target.value;
+    setPatientOrders(newPatientOrders);
+  };
   const handleSave = () => {
 
   };
@@ -21,30 +36,33 @@ const OrderDialog = ({ onClose, open }) => {
       maxWidth="sm"
     >
       <DialogTitle>
-        <Grid
-          justify="space-between"
-          container 
-          spacing={24}
-        >
+        <Grid justify="space-between" container>
           <Grid item>
-            <Typography variant="title">Order</Typography>
+            <Typography variant="h6">Order</Typography>
           </Grid>
           <Grid item>
-            <Button>Add Order</Button>
+            <Button color="primary" onClick={handleAdd}>Add</Button>
           </Grid>
         </Grid>
       </DialogTitle>
-      <DialogContent
-        dividers
-      >
-        Google, even when no apps are running.
+      <DialogContent dividers>
+        <List>
+          {
+            patientOrders.map((orderId, index) => <OrderSelect
+              key={index}
+              value={orderId}
+              onChange={e => handleOrderChange(e, index)}
+            />
+            )
+          }
+        </List>
       </DialogContent>
       <DialogActions>
-        <Button autoFocus onClick={onClose} color="primary">
+        <Button autoFocus onClick={onClose}>
           Cancel
         </Button>
-        <Button onClick={handleSave} color="primary">
-          Ok
+        <Button color="primary" onClick={handleSave}>
+          Save
         </Button>
       </DialogActions>
     </Dialog>
@@ -54,6 +72,11 @@ const OrderDialog = ({ onClose, open }) => {
 OrderDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
+  patient: PropTypes.object.isRequired,
 };
 
-export default OrderDialog;
+const mapStateToProps = ({ orders }) => {
+  return { orders };
+}
+
+export default connect(mapStateToProps, null)(OrderDialog);

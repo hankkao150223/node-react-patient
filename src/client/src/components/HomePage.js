@@ -1,10 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-import { connect } from 'react-redux';
 
 const HomePage = ({ patients, onClickItem }) => {
   return (
@@ -20,7 +20,7 @@ const HomePage = ({ patients, onClickItem }) => {
             <ListItem
               key={p.id}
               button
-              onClick={() => onClickItem(p.id)}
+              onClick={() => onClickItem(p)}
             >
               <ListItemText primary={p.name} />
             </ListItem>
