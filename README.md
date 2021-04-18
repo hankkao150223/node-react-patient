@@ -29,14 +29,14 @@ npm run dev
 
 ## Todo List
 
-- [ ] 前端React， 使用react hooks(state)進行資料保存
+- [x] 前端React， 使用react hooks(state)進行資料保存
 - [ ] 前端React資料的存取，採用react hook或redux均可，不限制
 - [ ] 前端採用MaterialUI(https://material-ui.com)為基礎元件，進行製作
 - [x] 後端採用Nodejs + Express
 - [x] 後端資料庫採用MongoDB
-- [ ] 住民為固定，醫囑可新增編輯
+- [x] 住民為固定，醫囑可新增編輯
   - [x] 住民為固定
-  - [ ] 醫囑可新增編輯
+  - [x] 醫囑可新增編輯
 
 ## Env
 

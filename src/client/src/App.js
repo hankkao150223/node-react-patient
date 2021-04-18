@@ -1,8 +1,12 @@
+import React from 'react';
+import Button from '@material-ui/core/Button';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      Hi ...
+      <Button variant="contained" color="primary">
+        你好，世界
+      </Button>
     </div>
   );
 }
