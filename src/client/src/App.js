@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Container from '@material-ui/core/Container';
-import PatientList from './components/patientList';
+import HomePage from './components/HomePage';
 import * as actions from './store/actions';
 
 const App = (props) => {
@@ -12,7 +12,7 @@ const App = (props) => {
   }, []);
   return (
     <Container component="main" maxWidth="xs">
-      <PatientList />
+      <HomePage />
     </Container>
   );
 }
