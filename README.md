@@ -4,6 +4,25 @@
 
 專案架構: 參考[StephenGrider/FullstackReactCode](https://github.com/StephenGrider/FullstackReactCode)
 
+## How to run
+
+```bash
+cd src
+# npm install server package
+npm i
+# ---------
+cd client
+# npm install client package
+npm i
+# ---------
+cd ..
+# open server and client dev server
+npm run dev
+```
+
+> server: http://localhost:8080
+> client: http://localhost:8081
+
 ## document
 
 - [API doc](./API.md)

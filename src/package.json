@@ -4,7 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "db:seed": "node seed/index.js"
   },
   "keywords": [],
@@ -18,6 +21,7 @@
     "mongoose": "^5.12.4"
   },
   "devDependencies": {
+    "concurrently": "^6.0.2",
     "nodemon": "^2.0.7"
   }
 }
