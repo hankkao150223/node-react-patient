@@ -11,10 +11,17 @@ const defaultState = {
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case FETCH_PATIENT_LIST:
-      return {};
+      return {
+        ...state,
+        patients: action.payload,
+      };
     case FETCH_ORDER_LIST:
-      return {};
-    default: return state;
+      return {
+        ...state,
+        orders: action.payload,
+      };
+    default:
+      return state;
   }
 };
 

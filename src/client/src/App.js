@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
+import * as actions from './store/actions';
 
-const App = () => {
+const App = (props) => {
+  useEffect(() => {
+    props.fetchPatientList();
+    props.fetchOrderList();
+  });
   return (
     <div className="App">
       <Button variant="contained" color="primary">
@@ -11,4 +17,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default connect(null, actions)(App);
