@@ -1,14 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
 
-const patientList = (props) => {
-  const handleListItemClick = (patientId) => {
-    console.log(patientId);
-  };
+const HomePage = ({ patients, onClickItem }) => {
   return (
     <>
       <Typography
@@ -18,11 +16,11 @@ const patientList = (props) => {
       >Patient List</Typography>
       <List component="nav" aria-label="main mailbox folders">
         {
-          props.patients.map((p) => (
+          patients.map((p) => (
             <ListItem
               key={p.id}
               button
-              onClick={() => handleListItemClick(p.id)}
+              onClick={() => onClickItem(p.id)}
             >
               <ListItemText primary={p.name} />
             </ListItem>
@@ -33,8 +31,12 @@ const patientList = (props) => {
   );
 };
 
+HomePage.propTypes = {
+  onClickItem: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = ({ patients }) => {
   return { patients };
 }
 
-export default connect(mapStateToProps, null)(patientList);
+export default connect(mapStateToProps, null)(HomePage);
