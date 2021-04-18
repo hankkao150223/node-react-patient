@@ -8,7 +8,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const OrderSelect = ({ orders, value, onChange }) => {
+const OrderSelect = ({ orders, value, onChange, onDelete }) => {
   return (
     <ListItem>
       <Select value={value} onChange={onChange}>
@@ -17,7 +17,7 @@ const OrderSelect = ({ orders, value, onChange }) => {
         }
       </Select>
       <ListItemSecondaryAction>
-        <IconButton edge="end" aria-label="delete">
+        <IconButton edge="end" aria-label="delete" onClick={onDelete}>
           <DeleteIcon />
         </IconButton>
       </ListItemSecondaryAction>
@@ -28,6 +28,7 @@ const OrderSelect = ({ orders, value, onChange }) => {
 OrderSelect.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ orders }) => {

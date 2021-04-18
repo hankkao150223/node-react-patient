@@ -29,11 +29,10 @@ const App = (props) => {
       {
         openDialog ? <OrderDialog
           open={openDialog}
-          onClose={handleDialogClose}
           patient={patient}
+          onClose={handleDialogClose}
         /> : ''
       }
-      
     </Container>
   );
 }

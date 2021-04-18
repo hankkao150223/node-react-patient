@@ -24,6 +24,10 @@ const OrderDialog = ({ onClose, open, patient, orders }) => {
     newPatientOrders[index] = e.target.value;
     setPatientOrders(newPatientOrders);
   };
+  const handleOrderDelete = (index) => {
+    const newPatientOrders = patientOrders.filter((_, pIdx) => pIdx !== index);
+    setPatientOrders(newPatientOrders);
+  };
   const handleSave = () => {
 
   };
@@ -52,6 +56,7 @@ const OrderDialog = ({ onClose, open, patient, orders }) => {
               key={index}
               value={orderId}
               onChange={e => handleOrderChange(e, index)}
+              onDelete={() => handleOrderDelete(index)}
             />
             )
           }
