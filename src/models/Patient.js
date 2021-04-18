@@ -4,10 +4,10 @@ const { Schema } = mongoose;
 const patientSchema = new Schema({
   id: mongoose.Schema.Types.ObjectId,
   name: String,
-  orderId: {
+  orders: [{
     type: Schema.Types.ObjectId,
     ref: 'orders',
-  },
+  }],
 });
 
 mongoose.model('patients', patientSchema);

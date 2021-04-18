@@ -13,7 +13,7 @@ module.exports = async (orders) => {
       ['Ryan', orders[2]],
     ].map(p => ({
       name: p[0],
-      orderId: p[1]._id,
+      orders: [p[1]._id],
     }));
 
     await Patient.deleteMany({});
